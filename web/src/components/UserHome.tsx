@@ -58,7 +58,12 @@ export const UserHome: React.FC = () => {
         body: JSON.stringify({docName: noteName})
       });
       const newNote = await res.json();
-      setNotes([...notes, newNote.data]);
+      if(notes){
+        setNotes([...notes, newNote.data]);
+      }
+      else{
+        setNotes([newNote.data]);
+      }
     }
 
     // EFfect to get all the notes in the db
@@ -104,10 +109,10 @@ export const UserHome: React.FC = () => {
               <br></br>
               <br></br>
               <div>
-                {
+                {notes? 
                 notes.map((note) =>
                       <NoteCard note={note}/>
-                )}
+                ) : <p>No current notes!</p>}
               </div>
             </>)
               :

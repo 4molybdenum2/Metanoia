@@ -19,11 +19,11 @@ passport.use(new GoogleStrategy({
             }
             else{
                 // if user doesn't exist
-                console.log(profile.email);
                 new User({
                     userName: profile.displayName,
                     googleId: profile.id,
-                    email: profile._json.email
+                    email: profile._json.email,
+                    thumbnail: profile._json.picture
                 }).save()
                     .then(newUser => {console.log('New User Created' + newUser)
                     done(null, newUser)

@@ -2,7 +2,7 @@ import React, { useContext} from 'react'
 import { UserContext} from '../context/UserContext';
 import { IUser } from '../types/User';
 import { Button } from '@material-ui/core';
-import { css } from 'emotion';
+import Avatar from '@material-ui/core/Avatar';
 export const Header : React.FC =() => {
 
     const user = useContext(UserContext) as IUser;
@@ -26,6 +26,7 @@ export const Header : React.FC =() => {
             { user ? 
                 (
                 <>
+                        <Avatar alt="Remy Sharp" src={user.thumbnail} />
                         <h3>{user.userName}</h3> 
                         <Button variant="contained" color="primary" onClick={_handleLogoutClick}>Log Out</Button>
                 </>)

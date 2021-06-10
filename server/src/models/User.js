@@ -9,6 +9,7 @@
      userName: {type: String, required: true},
      email: {type: String, required: true},
      googleId: {type: String, required: true},
+     thumbnail: String,
      createdAt: {type: Date, required: true, default: Date.now() },
      lastModified: {type: Date, required: true, default: Date.now() }
  });
