@@ -2,6 +2,9 @@ import React,{useState,useEffect,useContext} from 'react';
 import { UserContext } from '../context/UserContext';
 import { IUser } from '../types/User';
 import {Button,Dialog,DialogTitle,DialogContent,TextField, DialogActions} from '@material-ui/core';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import { Alert } from '@material-ui/lab';
 import { NoteCard } from './NoteCard';
 
 export const UserHome: React.FC = () => {
@@ -77,10 +80,8 @@ export const UserHome: React.FC = () => {
       <div className="container">
         <div>
             {user ?
-            (<>
-            <Button variant="contained" color="primary" onClick={handleClickOpen}>
-                Create Note
-              </Button>
+            (<div className="container">
+            
               <Dialog 
               open={open}
               onClose={handleClose}
@@ -112,18 +113,18 @@ export const UserHome: React.FC = () => {
                 {notes? 
                 notes.map((note) =>
                       <NoteCard note={note}/>
-                ) : <p>No current notes!</p>}
+                ) : <Alert severity="info">No current notes...</Alert> }
+                <Fab  onClick={handleClickOpen} color="primary" aria-label="add" style={{position: 'absolute', bottom : '10%', right: '25%'}}>
+                  <AddIcon/>
+                </Fab>
               </div>
-            </>)
+
+            </div>)
               :
               (
                 
-            <div> 
-              <p>
-                Metanoia is a realtime collaborative editor. Create a Note , Add a collaborator and watch your changes in real time! <br></br>
-                Its just that simple!
-                </p>
-                <img src="/collaboration.webp"/>
+            <div className="image-container"> 
+                <img src="/image1.jpg" className="homepage-image" alt="collaboration"/>
             </div>
               )
             }

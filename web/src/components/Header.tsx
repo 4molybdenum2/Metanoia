@@ -3,6 +3,7 @@ import { UserContext} from '../context/UserContext';
 import { IUser } from '../types/User';
 import { Button } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
+import { Link } from 'react-router-dom';
 export const Header : React.FC =() => {
 
     const user = useContext(UserContext) as IUser;
@@ -21,20 +22,35 @@ export const Header : React.FC =() => {
         };
       
     return (
-
-        <div className="container navbar">
+        <div className="container">
             { user ? 
                 (
                 <>
-                        <Avatar alt="Remy Sharp" src={user.thumbnail} />
+                        {/* <Avatar alt="Remy Sharp" src={user.thumbnail} />
                         <h3>{user.userName}</h3> 
-                        <Button variant="contained" color="primary" onClick={_handleLogoutClick}>Log Out</Button>
+                        <Button variant="contained" color="primary" onClick={_handleLogoutClick}>Log Out</Button> */}
+                        <header>
+                            <div className="inner-header">
+                                    <Avatar alt="Remy Sharp" src={user.thumbnail} />
+                                    <h3>{user.userName}</h3>
+                                <div className="navigation">
+                                    <Button variant="contained" color="primary" onClick={_handleLogoutClick}>Log Out</Button>
+                                </div>
+                            </div>
+                        </header>
                 </>)
                 :
-                <div>
-                        <h2> Metanoia </h2>
-                        <Button variant="contained" color="secondary" onClick={_handleSignInClick}> Log in With Google </Button>
-                </div>
+                <header>
+                    <div className="inner-header">
+                        <div className="logo">
+                            <Link to="/"> Metanoia </Link>
+                        </div>
+                        <div className="navigation">
+                            <a href="#">FAQ</a>
+                            <a href="#" onClick={_handleSignInClick}>Log in</a>
+                        </div>
+                    </div>
+                </header>
                 
             }
         </div>
