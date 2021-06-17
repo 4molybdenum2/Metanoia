@@ -4,11 +4,17 @@ A Real-Time Collaborative Editor
 
 # Idea
 
----
-
 One of the issues we face during our virtual hours is a collaboration with our fellow teammates in taking notes, coding, or in general collaborating over a specific document. My project seeks to solve this issue by creating an app in which we can focus on doing our own tasks while the tasks we do are reflected in real-time to our team members. This has a wide variety of applications most useful for students and office workers in their day-to-day tasks.
 
 Metanoia will help solve this issue!
+
+# Showcase
+
+<p align='center'>
+    <img src="./statics/homepage.png" alt="Homepage" style="text-align:center; width: 600px;"/>
+    <img src="./statics/dashboard.png" alt="Dashboard" style="text-align:center; width: 600px;"/>
+    <img src="./statics/note.png" alt="Note" style="text-align:center; width: 600px;"/>
+</p>
 
 # Features
 
@@ -31,13 +37,11 @@ Metanoia will help solve this issue!
 
 # Scope
 
----
 
 A Real-time Collaborative Editor has infinitely many use cases. Users can use such an app for taking notes, managing their schedules, keeping track of their important tasks, and much more. Students can utilize such an app for their creative as well as educational needs. 
 
 A group of students can collaborate on a piece of code for their competitive programming challenges or maybe for taking notes consistently in their classes. Employees in an office can keep track of their daily tasks. Writers and creators can utilize such an app for their writing. The use cases of Metanoia are endless...
 
----
 
 # Challenges Faced:
 
@@ -57,6 +61,7 @@ Google+ API along with PassportJS were used to handle the authentication in the 
 **How to add collaborators to a Note (and manage access to it) ?**
 
 This was done by adding a *"collabs"* array field in the database that contained the emails of all the collaborators including the user. A check was performed with the client and this array field to check whether he/she is a collaborator.
+
 
 # Later Goals:
 
