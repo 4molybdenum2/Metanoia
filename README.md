@@ -10,10 +10,19 @@ Metanoia will help solve this issue!
 
 # Showcase
 
+### Homepage:
 <p align='center'>
-    <img src="./statics/homepage.png" alt="Homepage" style="text-align:center; width: 600px;"/>
-    <img src="./statics/dashboard.png" alt="Dashboard" style="text-align:center; width: 600px;"/>
-    <img src="./statics/note.png" alt="Note" style="text-align:center; width: 600px;"/>
+    <img src="./statics/homepage.png" alt="Homepage" style="text-align:center; width: 600px;"/>>
+</p>
+
+### Dashboard:
+<p align='center'>
+    <img src="./statics/dashboard.png" alt="Dashboard" style="text-align:center; width: 600px;"/>>
+</p>
+
+### Note:
+<p align='center'>
+    <img src="./statics/note.png" alt="Note" style="text-align:center; width: 600px;"/>>
 </p>
 
 # Features
