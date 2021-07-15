@@ -76,7 +76,7 @@ This was done by adding a *"collabs"* array field in the database that contained
 
 - Add a chatroom for the collaborators to chat in.
 - Add support for invitations as collaborators.
-- Add support for adding hyperlink and images to the note
+- ~~Add support for adding hyperlink and images to the note~~
 - Add support for emitting their current cursor location along with their username/email
 - Add support for auto-saving the Note after a given time interval
 - Offline saving (using Automerge's CRDT data structures)
