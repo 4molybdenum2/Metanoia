@@ -16,7 +16,6 @@ export const NoteCard: React.FC<any> = ({note}) => {
 
     const [collaborator, setCollaborator] = useState<string>();
     const [open, setOpen] = useState(false);
-
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -50,7 +49,8 @@ export const NoteCard: React.FC<any> = ({note}) => {
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({collab: collab})
-        })
+        });
+        
     }
 
     return(
