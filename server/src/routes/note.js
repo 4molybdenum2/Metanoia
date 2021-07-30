@@ -4,7 +4,7 @@ const Note = require('../models/Note');
 const User = require('../models/User');
 const passport = require('passport');
 const { ensureAuth } = require('../helpers/auth');
-
+const nodemailer = require('nodemailer');
 
 const initialEditorValue = [
   {
@@ -43,6 +43,16 @@ const initialEditorValue = [
   },
 ]
 
+// nodemailer config
+let transporter = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 25,
+  secure: false, // true for 465, false for other ports
+  auth: {
+    user: process.env.mailuser, // generated ethereal user
+    pass: process.env.mailpass, // generated ethereal password
+  },
+});
 
 // post request to create a Note
 noteRouter.post("/document/create", ensureAuth, async (req, res) => {
@@ -146,6 +156,20 @@ noteRouter.patch('/document/addcollab/:docId', ensureAuth, async(req,res)=>{
   if(!req.body)
   res.status(400).json({message: "No collab, body is empty!"});
 
+  let mailOptions = {
+    from: `${req.user.userName} <test@metanoia.com>`, // sender address
+    to: `${req.body.collab}`, // list of receivers
+    subject: "Invitation to Collaborate on a Note", // Subject line
+    text: `Hello this is an automated mail from Metanoia on the behalf of user: ${req.user.userName} inviting you to collaborate on a Note http://localhost:3000/note/${req.params.docId}`, // plain text body
+    html: `<b>Hello this is an automated mail from Metanoia on the behalf of user: ${req.user.userName} inviting you to collaborate on a <a href="http://localhost:3000/note/${req.params.docId}">Note </a></b>`, // html body
+  };
+  transporter.sendMail(mailOptions, (err,info) => {
+    if(err){
+      return console.error(err);
+    }
+    console.log("Message sent: %s", info.messageId);
+
+  });
   // Find post and update it with the request body
   const updatedNote = await Note.findByIdAndUpdate(req.params.docId, 
     {$push: {collabs: req.body.collab}}

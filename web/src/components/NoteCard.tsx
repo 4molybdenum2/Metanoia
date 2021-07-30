@@ -41,6 +41,7 @@ export const NoteCard: React.FC<any> = ({note}) => {
 
     const addCollaborator = async(noteId,collab) =>{
         console.log(collab);
+        // send mail to collaborator with the accept url which is basically http://localhost:4000/document/addCollab/:noteId
         await fetch(`http://localhost:4000/document/addCollab/${noteId}`,
         {
             method: "PATCH",
